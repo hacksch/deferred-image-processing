@@ -44,6 +44,7 @@ So make sure to add a rule like this *before* the blocking rule above:
   RewriteRule /_processed_/.+_([0-9a-f]{10})\.(gif|jpe?g|png)$ %{ENV:CWD}index.php?dip[chk]=$1&dip[ext]=$2 [END]
 ```
 
+### Rewrite rules for nginx
 ```nginxconf
   if (!-f $request_filename){
     rewrite "/fileadmin/_processed_/.+_([0-9a-f]{10})\.(gif|jpe?g|png|webp)$" /index.php?dip[chk]=$1&dip[ext]=$2;

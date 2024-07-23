@@ -86,8 +86,8 @@ class DeferredImageProcessor extends LocalImageProcessor
         $task->setExecuted(true);// keep!
         $task->getTargetFile()->setName($task->getTargetFileName());
         $task->getTargetFile()->updateProperties([
-            'width' => $imageDimensions->getWidth(),
-            'height' => $imageDimensions->getHeight(),
+            'width' => $imageDimension->getWidth(),
+            'height' => $imageDimension->getHeight(),
             'checksum' => $task->getConfigurationChecksum()
         ]);
     }

@@ -26,6 +26,9 @@ class DeferredImage extends \TYPO3\CMS\Core\Imaging\GraphicalFunctions implement
             return $handler->handle($request);
         }
 
+        // extend GraphicalFunctions:webImageExt
+        $this->webImageExt[] = 'webp';
+
         $match = $queryParams['dip'];
         if (!( isset($match['chk'], $match['ext']) && in_array($match['ext'], $this->webImageExt) )
         &&  !preg_match('/_(?<chk>[0-9a-f]{10})\.(?:'.implode('|',$this->webImageExt).')$/', $request->getUri()->getPath(), $match) // fallback ^1

@@ -43,6 +43,13 @@ So make sure to add a rule like this *before* the blocking rule above:
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule /_processed_/.+_([0-9a-f]{10})\.(gif|jpe?g|png)$ %{ENV:CWD}index.php?dip[chk]=$1&dip[ext]=$2 [END]
 ```
+
+```nginxconf
+  if (!-f $request_filename){
+    rewrite "/fileadmin/_processed_/.+_([0-9a-f]{10})\.(gif|jpe?g|png|webp)$" /index.php?dip[chk]=$1&dip[ext]=$2;
+  }
+```
+
 URL/HASH ref. @ [`Resource/Processing/AbstractTask`](https://github.com/TYPO3/typo3/blob/main/typo3/sysext/core/Classes/Resource/Processing/AbstractTask.php#L95-L115)
 
 ### Processing queue (optional)

@@ -73,6 +73,7 @@ class DeferredImageProcessor extends LocalImageProcessor
 
         $imageDimension = ImageDimension::fromProcessingTask($task);
         if (!$task->getConfiguration()['crop']
+        && !$task->getConfiguration()['fileExtension']
         &&  $imageDimension->getWidth() === $task->getTargetFile()->getOriginalFile()->getProperty('width')
         &&  $imageDimension->getHeight() === $task->getTargetFile()->getOriginalFile()->getProperty('height')
         ) {

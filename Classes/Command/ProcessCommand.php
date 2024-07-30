@@ -43,7 +43,7 @@ class ProcessCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $limit = $input->getArgument('limit') ?: 10;
+        $limit = (int) $input->getArgument('limit') ?: 10;
         $status = $input->hasOption('status');
         $verbose = $input->hasOption('verbose');
 

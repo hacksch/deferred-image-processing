@@ -30,12 +30,6 @@ class ProcessCommand extends Command
                 InputArgument::OPTIONAL,
                 'Show status'
             )
-            ->addOption(
-                'verbose',
-                null,
-                InputArgument::OPTIONAL,
-                'Show status messages (only in combination with --status)'
-            )
         ;
     }
 
